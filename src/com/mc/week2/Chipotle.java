@@ -61,20 +61,20 @@ public class Chipotle {
         veggies.add("no veggies");
 
         ArrayList<String> cheese = new ArrayList<>();
-        cheese.add(" yes");
-        cheese.add("no");
+        cheese.add("yes cheese");
+        cheese.add("no cheese");
 
         ArrayList<String> gauc = new ArrayList<>();
-        gauc.add("yes");
-        gauc.add("no");
+        gauc.add("yes guac");
+        gauc.add("no guac");
 
         ArrayList<String> queso = new ArrayList<>();
-        queso.add("yes");
-        queso.add("no");
+        queso.add("yes queso");
+        queso.add("no queso");
 
         ArrayList<String> sour = new ArrayList<>();
-        sour.add("yes");
-        sour.add("no");
+        sour.add("yes sour");
+        sour.add("no sour");
 
         for (int i =0; i<=25; i++){
             String riceRand = rice.get(rn.nextInt(rice.size()));
@@ -90,6 +90,31 @@ public class Chipotle {
             System.out.println("Burrito "+ i+ ": "+ riceRand+ ", "+ meatRand+", "+ beanRand+ ", "+ salsaRand+ ","
                     +veggiesRand+ ","+ cheeseRand+ ","+ gaucRand+ ","+quesoRand+","+ sourRand);
         }
-
+        priceCalculate(rice,meat,bean,salsa,veggy,cheese,guac,queso,sour);
     }
+    public static void priceCalculate(String rice, String meat,String bean,String salsa, String veggy, String cheese,
+                                        String guac, String queso,String sour){
+        double basePrice =3.00;
+        if (!rice.equalsIgnoreCase("no")){
+            basePrice +=0.5;
+        }if(!meat.equalsIgnoreCase("no")){
+            basePrice +=0.5;
+        }if(!bean.equalsIgnoreCase("no")){
+            basePrice +=0.5;
+        }if(!cheese.equalsIgnoreCase("no")){
+            basePrice +=0.5;
+        }if(!guac.equalsIgnoreCase("no")){
+            basePrice +=0.5;
+        }if(!queso.equalsIgnoreCase("no")){
+            basePrice +=0.5;
+        }if(!sour.equalsIgnoreCase("no")){
+            basePrice +=0.5;
+        }if(salsa.equalsIgnoreCase("mild+medium+hot")){
+            basePrice +=1.5;
+        }else if (!salsa.equalsIgnoreCase("no")){
+            basePrice+= 0.5;
+        }
+        System.out.println("Base price of each burrito: "+ basePrice);
+    }
+
 }
